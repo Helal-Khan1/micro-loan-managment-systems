@@ -14,34 +14,55 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <div className="mt-5 ">
+    <div className="mt-15 relative">
       <Swiper
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 3000, // প্রতিটা স্লাইড 2.5 সেকেন্ড পর অটো চেঞ্জ হবে
+          delay: 3000,
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
-        className="mySwiper "
+        className="mySwiper"
       >
         <SwiperSlide>
-          <img src={image_1} className=" sm:h-[600px] w-full" alt="" />
+          <img
+            src={image_1}
+            className="w-full h-48 sm:h-64 md:h-[400px] lg:h-[600px] object-cover"
+            alt="Banner Image 1"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={image_2} className="sm:h-[600px] w-full" alt="" />
+          <img
+            src={image_2}
+            className="w-full h-48 sm:h-64 md:h-[400px] lg:h-[600px] object-cover"
+            alt="Banner Image 2"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={image_3} className="sm:h-[600px] w-full" alt="" />
+          <img
+            src={image_3}
+            className="w-full h-48 sm:h-64 md:h-[400px] lg:h-[600px] object-cover"
+            alt="Banner Image 3"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={image_4} className="sm:h-[600px] w-full" alt="" />
+          <img
+            src={image_4}
+            className="w-full h-48 sm:h-64 md:h-[400px] lg:h-[600px] object-cover"
+            alt="Banner Image 4"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={image_5} className="sm:h-[600px] w-full" alt="" />
+          <img
+            src={image_5}
+            className="w-full h-48 sm:h-64 md:h-[400px] lg:h-[600px] object-cover"
+            alt="Banner Image 5"
+          />
         </SwiperSlide>
       </Swiper>
-      <div className="absolute pl-15 mt-5">
-        <button className="btn bg-[#483ad4] text-white flex items-center gap-2">
+
+      <div className="absolute bottom-5 left-5 md:left-10 z-10">
+        <button className="btn bg-[#483ad4] hover:bg-[#342a9b] text-white font-semibold py-2 px-4 rounded flex items-center gap-2 transition-colors duration-300">
           Apply For Loan
           <FaLongArrowAltRight />
         </button>

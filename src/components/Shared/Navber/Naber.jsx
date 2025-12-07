@@ -37,7 +37,7 @@ const Naber = () => {
 
       <li>
         <NavLink
-          to="/err"
+          to="/loan"
           className={({ isActive }) =>
             isActive ? "border-2 border-blue-500 rounded-md px-2" : ""
           }
@@ -74,7 +74,7 @@ const Naber = () => {
     <div className="navbar bg-base-100 shadow-sm">
       <div className="lg:max-w-7xl w-11/12 mx-auto flex items-center justify-between">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown ">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const Naber = () => {
 
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow "
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1  absolute mt-3 w-52 p-2 shadow "
             >
               {links}
             </ul>

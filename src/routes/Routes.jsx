@@ -8,6 +8,7 @@ import Loding from "../pages/Loding";
 import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/LogIn/Login";
 import PrivetRoutes from "./PrivetRoutes";
+import DetailsPage from "../pages/DetailsPage/DetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "err",
+        path: "loan",
         element: <AllLoan></AllLoan>,
       },
       {
@@ -35,8 +36,15 @@ export const router = createBrowserRouter([
         path: "Loding",
         element: (
           <PrivetRoutes>
-        
             <Loding></Loding>
+          </PrivetRoutes>
+        ),
+      },
+      {
+        path: "details/:id",
+        element: (
+          <PrivetRoutes>
+            <DetailsPage></DetailsPage>
           </PrivetRoutes>
         ),
       },
