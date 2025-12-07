@@ -1,0 +1,74 @@
+[
+  {
+    "loanImage": "https://i.ibb.co.com/214xwhcT/account-assets-audit-bank-bookkeeping-finance-concept.jpg",
+    "loanTitle": "",
+    "description": "Provided for urgent expenses or personal financial needs.",
+    "category": "Personal Loan",
+    "interestRate": "10% - 14%",
+    "maxLimit": 50000,
+    "emiPlans": [3, 6, 9, 12]
+  },
+  {
+    "loanImage": "https://i.ibb.co.com/TjyzX0g/Pink-And-White-Modern-We-Offer-Small-Business-Loan-Instagram-Post.png",
+    "loanTitle": "Small Business Startup Loan",
+    "description": "Offered to start or expand small businesses.",
+    "category": "Business Loan",
+    "interestRate": "12% - 18%",
+    "maxLimit": 200000,
+    "emiPlans": [6, 12, 18, 24]
+  },
+  {
+    "loanImage": "https://i.ibb.co.com/hRkWKF4f/Agriculture-Instagram-Post.png",
+    "loanTitle": "Agriculture Loan",
+    "description": "Financial support for crop production, seeds, fertilizers, or farming equipment.",
+    "category": "Agriculture",
+    "interestRate": "8% - 12%",
+    "maxLimit": 150000,
+    "emiPlans": [6, 12, 18]
+  },
+  {
+    "loanImage": "https://i.ibb.co.com/pGYsq80/Blue-and-White-Modern-Education-Loan-Help-Instagram-Post.png",
+    "loanTitle": "Education Loan",
+    "description": "Helps students cover education expenses, course fees, or exam fees.",
+    "category": "Education",
+    "interestRate": "6% - 10%",
+    "maxLimit": 80000,
+    "emiPlans": [6, 12, 18]
+  },
+  {
+    "loanImage": "https://i.ibb.co.com/JWbHyzKD/MEDICAL.png",
+    "loanTitle": "Medical Emergency Loan",
+    "description": "Supports urgent medical expenses, medicines, surgery, or hospital bills.",
+    "category": "Medical",
+    "interestRate": "9% - 14%",
+    "maxLimit": 100000,
+    "emiPlans": [3, 6, 9, 12]
+  },
+  {
+    "loanImage": "https://i.ibb.co.com/LzFPBWcY/Orange-and-White-Minimalist-Home-Loan-Company-Services-Instagram-Post.png",
+    "loanTitle": "Housing Repair Loan",
+    "description": "Offered for house repairs, painting, or minor construction work.",
+    "category": "Housing Repair",
+    "interestRate": "11% - 15%",
+    "maxLimit": 120000,
+    "emiPlans": [6, 12, 18]
+  },
+  {
+    "loanImage": "https://i.ibb.co.com/B2Td5sbb/Blue-and-White-Gradients-Loans-Linked-In-Post.png",
+    "loanTitle": "Women Entrepreneur Loan",
+    "description": "Supports women in small businesses, handicrafts, or startup ventures.",
+    "category": "Women Entrepreneurship",
+    "interestRate": "7% - 12%",
+    "maxLimit": 150000,
+    "emiPlans": [6, 12, 18, 24]
+  },
+  {
+    "loanImage": "https://i.ibb.co.com/gMzJGqSY/buy-your-vehicle-inline-instagram-post.png",
+    "loanTitle": "Two-Wheeler Vehicle Loan",
+    "description": "Provides financial support to purchase motorcycles or electric bikes.",
+    "category": "Vehicle Loan",
+    "interestRate": "12% - 16%",
+    "maxLimit": 250000,
+    "emiPlans": [12, 18, 24, 30]
+  }
+]
