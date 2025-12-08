@@ -9,6 +9,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/LogIn/Login";
 import PrivetRoutes from "./PrivetRoutes";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
+import ApplicationFrom from "../pages/Application/ApplicationFrom";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivetRoutes>
             <DetailsPage></DetailsPage>
+          </PrivetRoutes>
+        ),
+      },
+      {
+        path: "applicationFrom/:id",
+        element: (
+          <PrivetRoutes>
+            <ApplicationFrom></ApplicationFrom>
           </PrivetRoutes>
         ),
       },
