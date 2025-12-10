@@ -11,6 +11,7 @@ import image_3 from "../../assets/Micro Loan/image3.png";
 import image_4 from "../../assets/Micro Loan/image4.png";
 import image_5 from "../../assets/Micro Loan/image5.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Banner = () => {
   return (
@@ -62,10 +63,12 @@ const Banner = () => {
       </Swiper>
 
       <div className="absolute bottom-5 left-5 md:left-10 z-10">
-        <button className="btn bg-[#483ad4] hover:bg-[#342a9b] text-white font-semibold py-2 px-4 rounded flex items-center gap-2 transition-colors duration-300">
-          Apply For Loan
-          <FaLongArrowAltRight />
-        </button>
+        <Link to="/Banner">
+          <button className="btn bg-[#483ad4] hover:bg-[#342a9b] text-white font-semibold py-2 px-4 rounded flex items-center gap-2 transition-colors duration-300">
+            Apply For Loan
+            <FaLongArrowAltRight />
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -11,3 +11,11 @@ export const imageUploade = async (imageData) => {
   );
   return data?.data?.display_url;
 };
+
+export const userSave = async (userdata) => {
+  const res = await axios.post(
+    `${import.meta.env.VITE_HOST_URL}/users`,
+    userdata
+  );
+  return res.data;
+};

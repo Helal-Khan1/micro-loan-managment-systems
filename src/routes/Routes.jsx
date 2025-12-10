@@ -5,11 +5,16 @@ import Error from "../components/Error";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import AllLoan from "../pages/AllLoan/AllLoan";
 import Loding from "../pages/Loding";
-import SignUp from "../pages/SignUp/SignUp";
+import SignUp from "../pages/MainLayouts/SignUp/SignUp";
 import Login from "../pages/LogIn/Login";
 import PrivetRoutes from "./PrivetRoutes";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import ApplicationFrom from "../pages/Application/ApplicationFrom";
+import DeshbordLayouts from "../layouts/DeshbordLayouts";
+import BannerApply from "../pages/Application/BannerApply";
+import ManageUsers from "../pages/Deshbord/Admin/ManageUsers";
+import ManajAllLoan from "../pages/Deshbord/Admin/ManajAllLoan";
+import LoanApplications from "../pages/Deshbord/Admin/LoanApplications";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +62,14 @@ export const router = createBrowserRouter([
           </PrivetRoutes>
         ),
       },
+      {
+        path: "Banner",
+        element: (
+          <PrivetRoutes>
+            <BannerApply></BannerApply>
+          </PrivetRoutes>
+        ),
+      },
     ],
   },
   {
@@ -66,5 +79,24 @@ export const router = createBrowserRouter([
   {
     path: "signup",
     Component: SignUp,
+  },
+  {
+    path: "deshbord",
+    element: (
+      <PrivetRoutes>
+        <DeshbordLayouts></DeshbordLayouts>
+      </PrivetRoutes>
+    ),
+    children: [
+      { path: "user-manag", element: <ManageUsers></ManageUsers> },
+      {
+        path: "All_loan_manaj",
+        element: <ManajAllLoan></ManajAllLoan>,
+      },
+      {
+        path: "loan_application",
+        element: <LoanApplications></LoanApplications>,
+      },
+    ],
   },
 ]);

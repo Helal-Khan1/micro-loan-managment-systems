@@ -1,15 +1,15 @@
 import React from "react";
-import SocalLogin from "../../components/SocalLogin/SocalLogin";
+import SocalLogin from "../../../components/SocalLogin/SocalLogin";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
-import { imageUploade } from "../../utils";
+import { imageUploade, userSave } from "../../../utils";
 
 const SignUp = () => {
   const { createUser, setLoading, updateProfileUser } = useAuth();
   const location = useLocation();
-  const navgate = useNavigate();
+  const navigate = useNavigate();
 
   const form = location.state || "/";
   const {
@@ -19,30 +19,45 @@ const SignUp = () => {
   } = useForm();
 
   const onsubmiteHandalar = async (data) => {
-    const imageFile = data.image[0];
-    console.log(imageFile);
+    try {
+      setLoading(true);
 
-    const image_Url = await imageUploade(imageFile);
-    console.log(image_Url);
+      const imageFile = data.image[0];
+      console.log(imageFile);
 
-    createUser(data.email, data.password)
-      .then((res) => {
-        console.log(res.user);
-        toast("user seccessfully created");
+      const image_Url = await imageUploade(imageFile);
+      console.log(image_Url);
 
-        updateProfileUser({ displayName: data.name, photoURL: image_Url }).then(
-          (res) => {
-            console.log("user update seccessfuly", res);
-          }
-        );
-        navgate(form, { replace: "true" });
+      const userCredential = await createUser(data.email, data.password);
+      console.log("Firebase user created:", userCredential.user);
 
-        setLoading(false);
-      })
-      .catch((err) => {
-        toast(err.code);
-        console.log(err.code);
+      await updateProfileUser({
+        displayName: data.name,
+        photoURL: image_Url,
       });
+
+      console.log("User profile updated");
+
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+        photoURL: image_Url,
+        role: data.role,
+      };
+
+      const res = await userSave(userInfo);
+      console.log("User saved to DB:", res);
+
+      toast("User successfully created");
+
+      // 5️⃣ Navigation
+      navigate(form, { replace: true });
+    } catch (err) {
+      console.log(err);
+      toast(err.code || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
