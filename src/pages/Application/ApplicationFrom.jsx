@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import React, { use } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 import Loading from "../Loding";
 import useAxiousSecoure from "../../hooks/useAxiousSecoure";
 import Error from "../../components/Error";
+import { toast } from "react-toastify";
 
 const ApplicationForm = () => {
   const { user } = useAuth();
@@ -19,7 +20,7 @@ const ApplicationForm = () => {
       await axioussecore.post("/application", playload),
     onSuccess: (data) => {
       console.log(data);
-      alert("successfullu post");
+      toast("successfullu post");
     },
     onError: (error) => {
       console.log(error);
@@ -57,7 +58,6 @@ const ApplicationForm = () => {
     <div className="w-11/12 max-w-4xl mx-auto my-12">
       <div className="card bg-base-100 shadow-2xl p-6 sm:p-10">
         <h2 className="text-4xl font-extrabold mb-8 text-center text-primary">
-    
           Application For Loan
         </h2>
 

@@ -5,11 +5,19 @@ import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import useAxiousSecoure from "../../hooks/useAxiousSecoure";
 import UserSespanModu from "./UserSespanModul";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
+import Loading from "../../pages/Loding";
+import Error from "../Error";
 
 export default function MyModal({ user }) {
   let [isOpen, setIsOpen] = useState(false);
   const [role, setRole] = useState(user.role);
   const axiousSecore = useAxiousSecoure();
+  const QueryClient = useQueryClient();
 
   function open() {
     setIsOpen(true);
@@ -19,21 +27,40 @@ export default function MyModal({ user }) {
     setIsOpen(false);
   }
 
-  const updateinfo = (id) => {
-    console.log(id);
+  const { reset, isPending, isError, mutateAsync } = useMutation({
+    mutationFn: async ({ id, payload }) =>
+      await axiousSecore.patch(`/update_user/${id}`, payload),
+
+    onSuccess: () => {
+      QueryClient.invalidateQueries(["allUsers"]); // ⭐ গুরুত্বপূর্ণ
+      setIsOpen(false);
+      reset();
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+    onMutate: (payload) => {
+      console.log("i will post ", payload);
+    },
+  });
+
+  const updateinfo = async () => {
     console.log("rhe roe ", role);
     const updatainfo = {
       role: role,
       status: "aproved",
     };
 
-    axiousSecore.patch(`/update_user/${id}`, updatainfo).then((res) => {
-      console.log(res.data);
-      if (res.data.modifiedCount) {
-        setIsOpen(false);
-      }
-    });
+    await mutateAsync({ id: user._id, payload: updatainfo });
   };
+
+  if (isPending) return <Loading />;
+  if (isError)
+    return (
+      <div>
+        <Error />
+      </div>
+    );
 
   return (
     <>
@@ -78,17 +105,11 @@ export default function MyModal({ user }) {
                       </td>
                       <td>
                         {user.status === "aproved" ? (
-                          <button
-                            onClick={() => updateinfo(user._id)}
-                            className="btn"
-                          >
+                          <button onClick={() => updateinfo()} className="btn">
                             approved
                           </button>
                         ) : (
-                          <button
-                            onClick={() => updateinfo(user._id)}
-                            className="btn"
-                          >
+                          <button onClick={() => updateinfo()} className="btn">
                             approve
                           </button>
                         )}

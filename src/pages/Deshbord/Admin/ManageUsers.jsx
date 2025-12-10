@@ -51,7 +51,8 @@ const ManageUsers = () => {
                 </td>
                 <td className=" space-x-2">
                   <MyModal user={user}></MyModal>
-                  <UserSespanModu></UserSespanModu>
+                  <UserSespanModu
+                 user={user} ></UserSespanModu>
                 </td>
               </tr>
             ))}

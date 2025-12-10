@@ -1,10 +1,14 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { useState } from "react";
 import useAxiousSecoure from "../../hooks/useAxiousSecoure";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Loading from "../../pages/Loding";
+import Error from "../Error";
 
-export default function UserSespanModu() {
-  let [issuspend, setIssuspend] = useState(false);
+export default function UserSespanModu({ user }) {
+  const [issuspend, setIssuspend] = useState(false);
   const axiousSecore = useAxiousSecoure();
+  const queryClient = useQueryClient();
 
   function open() {
     setIssuspend(true);
@@ -14,21 +18,41 @@ export default function UserSespanModu() {
     setIssuspend(false);
   }
 
-  const rejectUser = (id) => {
-    console.log(id);
+  const { isError, isPending, mutateAsync } = useMutation({
+    mutationFn: async ({ id, payload }) =>
+      await axiousSecore.patch(`/update_user/${id}`, payload),
 
-    const updatainfo = {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["user"]);
+      setIssuspend(false);
+    },
+  });
+
+  const handleSuspend = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const reason = form.reason.value;
+    const feedback = form.feedback.value;
+    console.log(reason);
+
+    const payload = {
       role: "suspend",
       status: "suspend",
+      whaysuspend: reason,
+      feedback,
     };
 
-    axiousSecore.patch(`/update_user/${id}`, updatainfo).then((res) => {
-      console.log(res.data);
-      if (res.data.modifiedCount) {
-        setIssuspend(false);
-      }
-    });
+    await mutateAsync({ id: user._id, payload });
   };
+
+  if (isPending) return <Loading />;
+  if (isError)
+    return (
+      <div>
+        <Error />
+      </div>
+    );
 
   return (
     <>
@@ -36,33 +60,47 @@ export default function UserSespanModu() {
         suspend
       </Button>
 
-      <Dialog
-        open={issuspend}
-        as="div"
-        className="relative z-10 focus:outline-none"
-        onClose={close}
-      >
+      <Dialog open={issuspend} onClose={close} as="div">
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
-            <DialogPanel
-              transition
-              className="w-full max-w-md rounded-xl bg-gray-200 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0"
-            >
-              <DialogTitle
-                as="h3"
-                className="text-base/7 font-medium text-center "
-              >
-                why suspend feedback
+            <DialogPanel className="w-full max-w-md rounded-xl bg-gray-200 p-6">
+              <DialogTitle className="text-center font-bold text-lg">
+                Why suspend feedback?
               </DialogTitle>
-              <p className="mt-2 text-sm/6 ">
-                Your payment has been successfully submitted. We’ve sent you an
-                email with all of the details of your order.
-              </p>
-              <div className="mt-4">
-                <Button className="btn" onClick={close}>
-                  cancel
-                </Button>
-              </div>
+
+              {/* SUBMIT FORM */}
+              <form onSubmit={handleSuspend}>
+                <div className="flex gap-4 mt-4">
+                  <div>
+                    <h1 className="font-bold">Why suspend</h1>
+                    <textarea
+                      name="reason"
+                      className="bg-white border rounded px-2 mt-2"
+                      placeholder="Why suspend"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <h1 className="font-bold">Feedback</h1>
+                    <textarea
+                      name="feedback"
+                      className="bg-white border rounded px-2 mt-2"
+                      placeholder="feedback"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-6 space-x-6">
+                  <Button type="submit" className="btn bg-red-400">
+                    Suspend
+                  </Button>
+
+                  <Button className="btn bg-blue-400" onClick={close}>
+                    Cancel
+                  </Button>
+                </div>
+              </form>
             </DialogPanel>
           </div>
         </div>
