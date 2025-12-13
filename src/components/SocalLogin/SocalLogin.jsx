@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router";
+import { userSave } from "../../utils";
 
 const SocalLogin = () => {
   const { signwithgoogle } = useAuth();
@@ -9,18 +10,26 @@ const SocalLogin = () => {
   const navigate = useNavigate();
   const form = location.state || "/";
 
-  const socalLoginhandalar = () => {
-    console.log("helal");
-    signwithgoogle()
-      .then((res) => {
-        console.log(res.user);
-        toast("user seccessfully login");
+  const socalLoginhandalar = async () => {
+    try {
+      const res = await signwithgoogle();
+      const role = "borrower";
+      console.log(res.user);
+      const users = res.user;
+      const userinfo = {
+        name: users.displayName,
+        email: users.email,
+        photoURL: users.photoURL,
+        role: role,
+      };
 
-        navigate(form, { replace: "true" });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      const saveUser = await userSave(userinfo);
+      console.log(saveUser);
+
+      navigate(form, { replace: true });
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <button

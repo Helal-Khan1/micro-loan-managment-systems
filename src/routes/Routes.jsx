@@ -15,6 +15,10 @@ import BannerApply from "../pages/Application/BannerApply";
 import ManageUsers from "../pages/Deshbord/Admin/ManageUsers";
 import ManajAllLoan from "../pages/Deshbord/Admin/ManajAllLoan";
 import LoanApplications from "../pages/Deshbord/Admin/LoanApplications";
+import UpdateLoan from "../pages/Deshbord/UpdateLoan/UpdateLoan";
+import AdminRouts from "./adminRouts";
+import AddLoan from "../pages/Deshbord/Manager/AddLoan";
+import ManagLoan from "../pages/Deshbord/Manager/ManagLoan";
 
 export const router = createBrowserRouter([
   {
@@ -88,14 +92,45 @@ export const router = createBrowserRouter([
       </PrivetRoutes>
     ),
     children: [
-      { path: "user-manag", element: <ManageUsers></ManageUsers> },
+      {
+        path: "users-manag",
+        element: (
+          <AdminRouts>
+            <ManageUsers></ManageUsers>
+          </AdminRouts>
+        ),
+      },
       {
         path: "All_loan_manaj",
-        element: <ManajAllLoan></ManajAllLoan>,
+        element: (
+          <AdminRouts>
+            <ManajAllLoan></ManajAllLoan>
+          </AdminRouts>
+        ),
       },
       {
         path: "loan_application",
-        element: <LoanApplications></LoanApplications>,
+        element: (
+          <AdminRouts>
+            <LoanApplications></LoanApplications>
+          </AdminRouts>
+        ),
+      },
+      {
+        path: "updateLoan/:id",
+        element: (
+          <AdminRouts>
+            <UpdateLoan></UpdateLoan>
+          </AdminRouts>
+        ),
+      },
+      {
+        path: "add_loan_aplications",
+        element: <AddLoan></AddLoan>,
+      },
+      {
+        path: "manag_loan",
+        element: <ManagLoan></ManagLoan>,
       },
     ],
   },

@@ -45,7 +45,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 dark:text-black dark:bg-white mt-15 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">

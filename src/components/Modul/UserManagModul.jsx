@@ -74,8 +74,8 @@ export default function MyModal({ user }) {
         className="relative z-10 focus:outline-none"
         onClose={close}
       >
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4">
+        <div className="fixed inset-0  dark:text-black z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-center dark:text-black justify-center p-4">
             <DialogPanel
               transition
               className="w-[600px]  rounded-xl bg-gray-200 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0"
@@ -84,7 +84,7 @@ export default function MyModal({ user }) {
                 <table className="table">
                   {/* head */}
                   <thead>
-                    <tr>
+                    <tr className="dark:text-black">
                       <th>Name</th>
                       <th>Update Role</th>
                       <th>update</th>
@@ -97,10 +97,10 @@ export default function MyModal({ user }) {
                         <select
                           value={role}
                           onChange={(e) => setRole(e.target.value)}
-                          className="select select-xs"
+                          className="select select-xs dark:text-white"
                         >
                           <option value="Manager">Manager</option>
-                          <option value="Browser">Browser</option>
+                          <option value="borrowe">borrowe</option>
                         </select>
                       </td>
                       <td>

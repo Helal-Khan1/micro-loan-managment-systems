@@ -54,7 +54,7 @@ const AvlableLoan = () => {
         Available Loan
       </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+      <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
         {loan?.map((step, index) => (
           <motion.div
             key={index}
@@ -64,15 +64,17 @@ const AvlableLoan = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.2, duration: 0.6 }}
           >
-            <div className="text-primary mb-4 mx-auto border p-4 rounded-xl w-full">
+            <div className="text-primary dark:bg-white dark:text-white mb-4 mx-auto border p-4 rounded-xl w-full">
               <img
                 src={step.loanImage}
-                className="h-48 rounded-lg object-cover w-full"
+                className="h-48 dark:bg-white rounded-lg object-cover w-full"
                 alt={step.loanTitle}
               />
             </div>
 
-            <h3 className="text-xl font-semibold mb-3">{step.loanTitle}</h3>
+            <h3 className="text-xl dark:text-black font-semibold mb-3">
+              {step.loanTitle}
+            </h3>
 
             <p className="text-gray-600 text-sm mb-4 flex-grow">
               {step.description}

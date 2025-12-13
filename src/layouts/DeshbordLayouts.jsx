@@ -2,10 +2,17 @@ import React from "react";
 import { FaUserCog } from "react-icons/fa";
 import { Link, Outlet } from "react-router";
 import { GiReceiveMoney } from "react-icons/gi";
-import { MdSettingsApplications } from "react-icons/md";
+import {
+  MdOutlineManageAccounts,
+  MdSettingsApplications,
+} from "react-icons/md";
 import logo from "../assets/logo.png";
+import useRole from "../hooks/useRole";
+import { SiAwssecretsmanager } from "react-icons/si";
 
 const DeshbordLayouts = () => {
+  const { role } = useRole();
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -39,7 +46,6 @@ const DeshbordLayouts = () => {
           </div>
         </nav>
         <div className="w-11/12 mx-auto mt-2">
-          {" "}
           <Outlet></Outlet>
         </div>
       </div>
@@ -78,43 +84,75 @@ const DeshbordLayouts = () => {
                 </button>
               </Link>
             </li>
-            <li>
-              <Link to="/deshbord/user-manag">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Manag User"
-                >
-                  {/* Icon */}
-                  <FaUserCog className="text-2xl font-bold" />
-                  <span className="is-drawer-close:hidden">Manag User</span>
-                </button>
-              </Link>
-            </li>
-            {/* All rounts */}
 
+            {role === "admin" && (
+              <>
+                <li>
+                  <Link to="/deshbord/users-manag">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Manag User"
+                    >
+                      {/* Icon */}
+                      <FaUserCog className="text-2xl font-bold" />
+                      <span className="is-drawer-close:hidden">Manag User</span>
+                    </button>
+                  </Link>
+                </li>
+                {/* All rounts */}
+                <li>
+                  <Link to="/deshbord/All_loan_manaj">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="All Loan"
+                    >
+                      {/* Icon */}
+                      <GiReceiveMoney className="text-2xl font-bold" />
+                      <span className="is-drawer-close:hidden">All Loan</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/deshbord/loan_application">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="All Application"
+                    >
+                      {/* Icon */}
+                      <MdSettingsApplications className="text-2xl font-bold" />
+                      <span className="is-drawer-close:hidden">
+                        All Application
+                      </span>
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
             <li>
-              <Link to="/deshbord/All_loan_manaj">
+              <Link to="/deshbord/add_loan_aplications">
                 <button
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="All Loan"
+                  data-tip="Add Loan"
                 >
                   {/* Icon */}
-                  <GiReceiveMoney className="text-2xl font-bold" />
-                  <span className="is-drawer-close:hidden">All Loan</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/deshbord/loan_application">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="All Application"
-                >
-                  {/* Icon */}
-                  <MdSettingsApplications className="text-2xl font-bold" />
+                  <SiAwssecretsmanager className="text-2xl font-bold" />
+
                   <span className="is-drawer-close:hidden">
                     All Application
                   </span>
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/deshbord/manag_loan">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Manag Loan"
+                >
+                  {/* Icon */}
+                  <MdOutlineManageAccounts className="text-2xl font-bold" />
+
+                  <span className="is-drawer-close:hidden">Manag Loan</span>
                 </button>
               </Link>
             </li>

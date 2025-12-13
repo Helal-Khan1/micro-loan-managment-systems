@@ -35,7 +35,7 @@ const feedbacks = [
 
 const CustomerFeedback = () => {
   return (
-    <section className="py-16  bg-gray-50">
+    <section className="py-16  dark:text-black bg-gray-50">
       <div className="container mx-auto px-4 text-center ">
         <h2 className="text-3xl font-bold mb-12">What Our Customers Say</h2>
 

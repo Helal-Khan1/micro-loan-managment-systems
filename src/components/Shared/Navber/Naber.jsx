@@ -69,7 +69,7 @@ const Naber = () => {
       </li>
       <li>
         <NavLink
-          to="/deshbord/user-manag"
+          to="/deshbord"
           className={({ isActive }) =>
             isActive ? "border-2 border-blue-500 rounded-md px-2" : ""
           }

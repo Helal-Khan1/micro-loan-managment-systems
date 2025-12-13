@@ -1,10 +1,14 @@
-import React, { use } from "react";
-import { useQuery } from "@tanstack/react-query";
+import React, { use, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useAxiousSecoure from "../../../hooks/useAxiousSecoure";
 import Loading from "../../Loding";
+import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const ManajAllLoan = () => {
   const axiouSecore = useAxiousSecoure();
+  const queryClient = useQueryClient();
+
   const { isPending, data: allLoan } = useQuery({
     queryKey: ["todos"],
     queryFn: async () => {
@@ -12,8 +16,57 @@ const ManajAllLoan = () => {
       return res.data;
     },
   });
+  const { mutate: deleteLoan, isPending: isDeleting } = useMutation({
+    mutationFn: async (id) => {
+      const res = await axiouSecore.delete(`/delete_loan/${id}`);
+      return res.data;
+    },
+
+    onSuccess: (res) => {
+      // delete সফল হলে ক্যাশ রিফ্রেশ হবে
+      queryClient.invalidateQueries(["todos"]);
+      console.log(res.data);
+    },
+  });
+
+  // const { mutateAsync, isPending: panding } = useMutation({
+  //   mutationFn: async ({ id, payload }) =>
+  //     await axiouSecore.patch(`/updateloan/${id}`, payload),
+
+  //   onSuccess: (res) => {
+  //     queryClient.invalidateQueries(["todos"]);
+  //     console.log(res);
+  //   },
+  // });
+
+  // const ishomeHandalar = async (id, value) => {
+  //   const payload = { isHome: value };
+
+  //   await mutateAsync({ id, payload });
+  // };
+  const delatehandalar = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteLoan(id);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
   if (isPending) return <Loading />;
-  const { category, interestRate, loanImage, loanTitle } = allLoan;
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -32,7 +85,7 @@ const ManajAllLoan = () => {
           </thead>
           <tbody>
             {allLoan.map((loan) => (
-              <tr>
+              <tr key={loan._id}>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -51,14 +104,26 @@ const ManajAllLoan = () => {
                 <td>Helal Khan</td>
                 <td>
                   <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
+                    <input
+                      type="checkbox"
+                      checked={loan.isHome}
+                      // onChange={(e) =>
+                      //   ishomeHandalar(loan._id, e.target.checked)
+                      // }
+                      className="checkbox"
+                    />
                   </th>
                 </td>
                 <td className=" space-x-5">
-                  <button className="btn">update</button>
-                  <button className="btn ">detale</button>
+                  <Link to={`/deshbord/updateLoan/${loan._id}`}>
+                    <button className="btn">update</button>
+                  </Link>
+                  <button
+                    onClick={() => delatehandalar(loan._id)}
+                    className="btn "
+                  >
+                    detale
+                  </button>
                 </td>
               </tr>
             ))}

@@ -61,7 +61,7 @@ export default function UserSespanModu({ user }) {
       </Button>
 
       <Dialog open={issuspend} onClose={close} as="div">
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto dark:text-black">
           <div className="flex min-h-full items-center justify-center p-4">
             <DialogPanel className="w-full max-w-md rounded-xl bg-gray-200 p-6">
               <DialogTitle className="text-center font-bold text-lg">

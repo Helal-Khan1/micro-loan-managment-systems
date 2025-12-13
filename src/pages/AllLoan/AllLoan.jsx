@@ -18,7 +18,7 @@ const AllLoan = () => {
   }
   console.log(all_loan);
   return (
-    <div className="lg:min-w-7xl sm:w-11/12 lg:p-4 px-3 md:px-2 mt-5 mx-auto">
+    <div className="lg:min-w-7xl sm:w-11/12 lg:p-4 px-3 md:px-2  dark:text-white mt-5 mx-auto">
       <div className="grid md:grid-cols-2 space-y-5 lg:grid-cols-3">
         {all_loan.map((loan) => (
           <div className="card bg-base-100 sm:w-96 shadow-sm">
@@ -32,7 +32,7 @@ const AllLoan = () => {
                   <span className="font-bold">Category: </span>
                   {loan.category}
                 </p>
-                <p className="text-gray-600 text-sm flex items-center gap-1">
+                <p className="text-gray-600 dark:text-white text-sm flex items-center gap-1">
                   <span className="font-bold">Interest:</span>{" "}
                   <FaPercentage className="text-green-500" />
                   {loan.interestRate}
@@ -40,8 +40,11 @@ const AllLoan = () => {
               </div>
               <div className="divider"></div>
               <div className="card-actions items-center">
-                <p className="text-sm">
-                  <span className="font-bold text-gray-800">Max-Loan:</span> 💰
+                <p className="text-sm dark:text-white">
+                  <span className="font-bold text-gray-800 dark:text-white">
+                    Max-Loan:
+                  </span>{" "}
+                  💰
                   {loan.maxLimit}
                 </p>
                 <Link to={`/details/${loan._id}`}>

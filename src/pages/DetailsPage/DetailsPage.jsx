@@ -59,13 +59,7 @@ const DetailsPage = () => {
             <h1 className="font-bold text-xl md:text-3xl">
               Available EMI Plans
             </h1>
-            <div className="mt-2 flex flex-wrap gap-3">
-              {emiPlans?.map((plan) => (
-                <span key={plan} className="text-sm md:text-base">
-                  Month {plan}
-                </span>
-              ))}
-            </div>
+            {loan.emiPlans}
           </div>
 
           <div className="bg-base-300 px-5 py-3 rounded-sm mt-5">

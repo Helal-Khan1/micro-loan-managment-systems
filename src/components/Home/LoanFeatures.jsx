@@ -30,7 +30,7 @@ const LoanFeatures = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 dark:text-black bg-white">
       <div className="container mx-auto px-4 text-center">
         {/* Title Animation */}
         <motion.h2

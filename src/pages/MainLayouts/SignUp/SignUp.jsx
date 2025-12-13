@@ -144,7 +144,7 @@ const SignUp = () => {
                   type="submit"
                   className="btn bg-[#483ad4] text-white mt-4"
                 >
-                  Login
+                  Register Now
                 </button>
                 <p>
                   Do you have an account?

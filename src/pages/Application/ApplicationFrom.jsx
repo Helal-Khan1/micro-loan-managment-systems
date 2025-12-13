@@ -3,7 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Loading from "../Loding";
 import useAxiousSecoure from "../../hooks/useAxiousSecoure";
 import Error from "../../components/Error";
@@ -14,6 +14,7 @@ const ApplicationForm = () => {
   const { id } = useParams();
   const { register, handleSubmit } = useForm();
   const axioussecore = useAxiousSecoure();
+  const navigation = useNavigate();
 
   const { isPending, isError, mutateAsync } = useMutation({
     mutationFn: async (playload) =>
@@ -21,6 +22,7 @@ const ApplicationForm = () => {
     onSuccess: (data) => {
       console.log(data);
       toast("successfullu post");
+      navigation("/loan");
     },
     onError: (error) => {
       console.log(error);
@@ -154,6 +156,15 @@ const ApplicationForm = () => {
                 placeholder="Loan Title "
                 {...register("LoanTitle")}
                 readOnly
+              />
+            </fieldset>
+            <fieldset className="form-control">
+              <label className="label font-medium"> Loan Category</label>
+              <input
+                type="text"
+                className="input input-bordered w-full"
+                placeholder="Loan Title "
+                {...register("loanCategroy")}
               />
             </fieldset>
             <fieldset className="form-control">
