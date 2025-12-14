@@ -38,7 +38,11 @@ const ApprivedAllLoan = () => {
                 <td>{loan.FastName}</td>
                 <td>{loan.UserEmail}</td>
                 <td>{loan.LoneAmount}</td>
-                <td>{new Date(loan.FromSubmitDate).toLocaleDateString()}</td>
+                <td>
+                  {new Date(loan.approvedDate).toLocaleDateString()}
+                  <br />
+                  {new Date(loan.approvedDate).toLocaleTimeString()}
+                </td>
                 <td className=" space-x-3.5 space-y-2.5 items-center">
                   <button className="btn  px-2 py-1 rounded text-white bg-green-500">
                     Approved

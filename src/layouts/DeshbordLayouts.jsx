@@ -2,6 +2,7 @@ import React from "react";
 import { FaCheckCircle, FaUserCog } from "react-icons/fa";
 import { Link, Outlet } from "react-router";
 import { GiReceiveMoney } from "react-icons/gi";
+import { CgProfile } from "react-icons/cg";
 import {
   MdOutlineManageAccounts,
   MdPending,
@@ -129,6 +130,19 @@ const DeshbordLayouts = () => {
                 </li>
               </>
             )}
+            <li>
+              <Link to="/deshbord/profile">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Add Loan"
+                >
+                  {/* Icon */}
+                  <CgProfile className="text-2xl font-bold" />
+
+                  <span className="is-drawer-close:hidden">Profile</span>
+                </button>
+              </Link>
+            </li>
             <li>
               <Link to="/deshbord/add_loan_aplications">
                 <button
