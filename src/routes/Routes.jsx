@@ -19,6 +19,8 @@ import UpdateLoan from "../pages/Deshbord/UpdateLoan/UpdateLoan";
 import AdminRouts from "./adminRouts";
 import AddLoan from "../pages/Deshbord/Manager/AddLoan";
 import ManagLoan from "../pages/Deshbord/Manager/ManagLoan";
+import PandingLoanAplication from "../pages/Deshbord/Manager/PandingLoanAplication";
+import ApprivedAllLoan from "../pages/Deshbord/Manager/ApprivedAllLoan";
 
 export const router = createBrowserRouter([
   {
@@ -131,6 +133,14 @@ export const router = createBrowserRouter([
       {
         path: "manag_loan",
         element: <ManagLoan></ManagLoan>,
+      },
+      {
+        path: "pannding_loan",
+        element: <PandingLoanAplication />,
+      },
+      {
+        path: "apprived_loan",
+        element: <ApprivedAllLoan></ApprivedAllLoan>,
       },
     ],
   },

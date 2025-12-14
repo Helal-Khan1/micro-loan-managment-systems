@@ -5,10 +5,10 @@ import useAxiousSecoure from "../../../hooks/useAxiousSecoure";
 import Loading from "../../Loding";
 import Error from "../../../components/Error";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const AddLoan = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const axioussecore = useAxiousSecoure();
   const quarycline = useQueryClient();
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -21,6 +21,7 @@ const AddLoan = () => {
       console.log(res);
       toast("updaoad sussessfully");
       quarycline.invalidateQueries("loan add post ");
+      reset();
     },
     onError: (err) => {
       console.log(err);

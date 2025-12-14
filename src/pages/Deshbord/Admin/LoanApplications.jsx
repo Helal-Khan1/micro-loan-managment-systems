@@ -31,9 +31,9 @@ const LoanApplications = () => {
         className="select border shadow"
       >
         <option value="">All</option>
-        <option value="Pending">Pending</option>
-        <option value="Approved">Approved</option>
-        <option value="Rejected">Rejected</option>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
       </select>
 
       <div className="overflow-x-auto">
@@ -62,7 +62,19 @@ const LoanApplications = () => {
                 <td>{aplication.UserEmail}</td>
                 <td>{aplication.loanCategroy}</td>
                 <td>{aplication.LoneAmount}</td>
-                <td>{aplication.status}</td>
+                <td>
+                  <span
+                    className={`px-2 py-1 rounded text-white ${
+                      aplication.status === "approved"
+                        ? "bg-green-600"
+                        : aplication.status === "Rejected"
+                        ? "bg-red-600"
+                        : "bg-yellow-500"
+                    }`}
+                  >
+                    {aplication.status}
+                  </span>
+                </td>
                 <td>
                   <AllaplicationMudal aplication={aplication} />
                 </td>

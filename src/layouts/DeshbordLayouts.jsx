@@ -1,9 +1,10 @@
 import React from "react";
-import { FaUserCog } from "react-icons/fa";
+import { FaCheckCircle, FaUserCog } from "react-icons/fa";
 import { Link, Outlet } from "react-router";
 import { GiReceiveMoney } from "react-icons/gi";
 import {
   MdOutlineManageAccounts,
+  MdPending,
   MdSettingsApplications,
 } from "react-icons/md";
 import logo from "../assets/logo.png";
@@ -153,6 +154,36 @@ const DeshbordLayouts = () => {
                   <MdOutlineManageAccounts className="text-2xl font-bold" />
 
                   <span className="is-drawer-close:hidden">Manag Loan</span>
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/deshbord/pannding_loan">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Panding_loan"
+                >
+                  {/* Icon */}
+                  <MdPending className="text-2xl font-bold" />
+
+                  <span className="is-drawer-close:hidden">
+                    Pending Aplication
+                  </span>
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/deshbord/apprived_loan">
+                <button
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Approved_loan"
+                >
+                  {/* Icon */}
+                  <FaCheckCircle className="text-2xl font-bold" />
+
+                  <span className="is-drawer-close:hidden">
+                    Approved Aplication
+                  </span>
                 </button>
               </Link>
             </li>
