@@ -3,6 +3,7 @@ import { FaCheckCircle, FaUserCog } from "react-icons/fa";
 import { Link, Outlet } from "react-router";
 import { GiReceiveMoney } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+import { FaUserTie } from "react-icons/fa6";
 import {
   MdOutlineManageAccounts,
   MdPending,
@@ -130,74 +131,94 @@ const DeshbordLayouts = () => {
                 </li>
               </>
             )}
+
+            {role === "Manager" && (
+              <>
+                <li>
+                  <Link to="/deshbord/profile">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Profile"
+                    >
+                      {/* Icon */}
+                      <CgProfile className="text-2xl font-bold" />
+
+                      <span className="is-drawer-close:hidden">Profile</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/deshbord/add_loan_aplications">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Add Loan"
+                    >
+                      {/* Icon */}
+                      <SiAwssecretsmanager className="text-2xl font-bold" />
+
+                      <span className="is-drawer-close:hidden">
+                        All Application
+                      </span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/deshbord/manag_loan">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Manag Loan"
+                    >
+                      {/* Icon */}
+                      <MdOutlineManageAccounts className="text-2xl font-bold" />
+
+                      <span className="is-drawer-close:hidden">Manag Loan</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/deshbord/pannding_loan">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Panding_loan"
+                    >
+                      {/* Icon */}
+                      <MdPending className="text-2xl font-bold" />
+
+                      <span className="is-drawer-close:hidden">
+                        Pending Aplication
+                      </span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/deshbord/apprived_loan">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Approved_loan"
+                    >
+                      {/* Icon */}
+                      <FaCheckCircle className="text-2xl font-bold" />
+
+                      <span className="is-drawer-close:hidden">
+                        Approved Aplication
+                      </span>
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
+
             <li>
-              <Link to="/deshbord/profile">
+              <Link to="/deshbord/myloan">
                 <button
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Add Loan"
+                  data-tip="My Loan"
                 >
                   {/* Icon */}
-                  <CgProfile className="text-2xl font-bold" />
 
-                  <span className="is-drawer-close:hidden">Profile</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/deshbord/add_loan_aplications">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Add Loan"
-                >
-                  {/* Icon */}
-                  <SiAwssecretsmanager className="text-2xl font-bold" />
+                  <FaUserTie className="text-2xl font-bold" />
 
-                  <span className="is-drawer-close:hidden">
-                    All Application
-                  </span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/deshbord/manag_loan">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Manag Loan"
-                >
-                  {/* Icon */}
-                  <MdOutlineManageAccounts className="text-2xl font-bold" />
-
-                  <span className="is-drawer-close:hidden">Manag Loan</span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/deshbord/pannding_loan">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Panding_loan"
-                >
-                  {/* Icon */}
-                  <MdPending className="text-2xl font-bold" />
-
-                  <span className="is-drawer-close:hidden">
-                    Pending Aplication
-                  </span>
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/deshbord/apprived_loan">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Approved_loan"
-                >
-                  {/* Icon */}
-                  <FaCheckCircle className="text-2xl font-bold" />
-
-                  <span className="is-drawer-close:hidden">
-                    Approved Aplication
-                  </span>
+                  <span className="is-drawer-close:hidden">My Loan</span>
                 </button>
               </Link>
             </li>

@@ -22,6 +22,8 @@ import ManagLoan from "../pages/Deshbord/Manager/ManagLoan";
 import PandingLoanAplication from "../pages/Deshbord/Manager/PandingLoanAplication";
 import ApprivedAllLoan from "../pages/Deshbord/Manager/ApprivedAllLoan";
 import ManagerProfile from "../pages/Deshbord/Manager/ManagerProfile";
+import ManagerRouts from "./ManagerRouts";
+import MyLoan from "../pages/Deshbord/User/MyLoan";
 
 export const router = createBrowserRouter([
   {
@@ -129,23 +131,48 @@ export const router = createBrowserRouter([
       },
       {
         path: "add_loan_aplications",
-        element: <AddLoan></AddLoan>,
+        element: (
+          <ManagerRouts>
+            <AddLoan></AddLoan>
+          </ManagerRouts>
+        ),
       },
       {
         path: "manag_loan",
-        element: <ManagLoan></ManagLoan>,
+        element: (
+          <ManagerRouts>
+            <ManagLoan></ManagLoan>
+          </ManagerRouts>
+        ),
       },
       {
         path: "pannding_loan",
-        element: <PandingLoanAplication />,
+        element: (
+          <ManagerRouts>
+            <PandingLoanAplication />
+          </ManagerRouts>
+        ),
       },
       {
         path: "apprived_loan",
-        element: <ApprivedAllLoan></ApprivedAllLoan>,
+        element: (
+          <ManagerRouts>
+            <ApprivedAllLoan></ApprivedAllLoan>
+          </ManagerRouts>
+        ),
       },
       {
         path: "Profile",
-        element: <ManagerProfile />,
+        element: (
+          <ManagerRouts>
+            <ManagerProfile />
+          </ManagerRouts>
+        ),
+      },
+
+      {
+        path: "myloan",
+        element: <MyLoan></MyLoan>,
       },
     ],
   },
