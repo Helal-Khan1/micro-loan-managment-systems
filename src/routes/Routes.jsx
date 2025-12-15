@@ -24,6 +24,7 @@ import ApprivedAllLoan from "../pages/Deshbord/Manager/ApprivedAllLoan";
 import ManagerProfile from "../pages/Deshbord/Manager/ManagerProfile";
 import ManagerRouts from "./ManagerRouts";
 import MyLoan from "../pages/Deshbord/User/MyLoan";
+import UsersProfile from "../pages/Deshbord/User/UsersProfile";
 
 export const router = createBrowserRouter([
   {
@@ -162,12 +163,16 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "Profile",
+        path: "profile",
         element: (
           <ManagerRouts>
-            <ManagerProfile />
+            <ManagerProfile></ManagerProfile>
           </ManagerRouts>
         ),
+      },
+      {
+        path: "User_Profile",
+        element: <UsersProfile></UsersProfile>,
       },
 
       {

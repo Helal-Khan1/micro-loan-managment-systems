@@ -3,14 +3,14 @@ import useAuth from "../hooks/useAuth";
 import useRole from "../hooks/useRole";
 import Loading from "../pages/Loding";
 
-const ManagerRouts = ({ children }) => {
+const AdminRouts = ({ children }) => {
   const { loading } = useAuth();
   const { role, isloading } = useRole();
   if (loading || isloading) {
     return <Loading></Loading>;
   }
 
-  if (role !== "manager") {
+  if (role !== "borrowe") {
     return (
       <>
         <div className="flex items-center justify-center ">
@@ -19,7 +19,7 @@ const ManagerRouts = ({ children }) => {
       </>
     );
   }
-  return children;   
-};  
+  return children;
+};
 
-export default ManagerRouts;
+export default AdminRouts;

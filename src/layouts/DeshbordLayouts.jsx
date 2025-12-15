@@ -132,7 +132,7 @@ const DeshbordLayouts = () => {
               </>
             )}
 
-            {role === "Manager" && (
+            {role === "manager" && (
               <>
                 <li>
                   <Link to="/deshbord/profile">
@@ -208,20 +208,39 @@ const DeshbordLayouts = () => {
               </>
             )}
 
-            <li>
-              <Link to="/deshbord/myloan">
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="My Loan"
-                >
-                  {/* Icon */}
+            {role === "borrowe" && (
+              <>
+                {" "}
+                <li>
+                  <Link to="/deshbord/myloan">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="My Loan"
+                    >
+                      {/* Icon */}
 
-                  <FaUserTie className="text-2xl font-bold" />
+                      <FaUserTie className="text-2xl font-bold" />
 
-                  <span className="is-drawer-close:hidden">My Loan</span>
-                </button>
-              </Link>
-            </li>
+                      <span className="is-drawer-close:hidden">My Loan</span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/deshbord/User_Profile">
+                    <button
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="My Loan"
+                    >
+                      {/* Icon */}
+
+                      <CgProfile className="text-2xl font-bold" />
+
+                      <span className="is-drawer-close:hidden">My Loan</span>
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
 
             {/* List item */}
             <li>

@@ -99,7 +99,7 @@ export default function MyModal({ user }) {
                           onChange={(e) => setRole(e.target.value)}
                           className="select select-xs dark:text-white"
                         >
-                          <option value="Manager">Manager</option>
+                          <option value="manager">Manager</option>
                           <option value="borrowe">borrowe</option>
                         </select>
                       </td>
