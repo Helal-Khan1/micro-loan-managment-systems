@@ -6,9 +6,11 @@ import Loading from "../../Loding";
 import Error from "../../../components/Error";
 import { toast } from "react-toastify";
 import React, { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
 
 const AddLoan = () => {
   const { register, handleSubmit, reset } = useForm();
+  const { user } = useAuth();
   const axioussecore = useAxiousSecoure();
   const quarycline = useQueryClient();
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -53,7 +55,8 @@ const AddLoan = () => {
       interestRate: data.interest,
       maxLimit: data.maxLoan,
       emiPlans: data.avliableEMI,
-      showIsHome: data.Ishome,
+      IsHome: data.Ishome,
+      createdBy: user.displayName,
     };
     await mutateAsync(upload);
     console.log(upload);

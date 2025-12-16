@@ -67,16 +67,18 @@ const Naber = () => {
           <MdContactSupport /> Contact
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/deshbord"
-          className={({ isActive }) =>
-            isActive ? "border-2 border-blue-500 rounded-md px-2" : ""
-          }
-        >
-          <MdContactSupport /> Deshbord
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink
+            to="/deshbord"
+            className={({ isActive }) =>
+              isActive ? "border-2 border-blue-500 rounded-md px-2" : ""
+            }
+          >
+            <MdContactSupport /> Deshbord
+          </NavLink>
+        </li>
+      )}
     </>
   );
 

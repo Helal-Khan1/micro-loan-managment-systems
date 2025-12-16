@@ -27,6 +27,7 @@ import MyLoan from "../pages/Deshbord/User/MyLoan";
 import UsersProfile from "../pages/Deshbord/User/UsersProfile";
 import BorrowerRouts from "./BorrowerRouts";
 import SuccessPrement from "../pages/Deshbord/Prement/SuccessPrement";
+import ContactUs from "../pages/Countcet";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ export const router = createBrowserRouter([
         path: "Loding",
         element: (
           <PrivetRoutes>
-            <Loding></Loding>
+            <ContactUs></ContactUs>
           </PrivetRoutes>
         ),
       },

@@ -8,8 +8,9 @@ import Swal from "sweetalert2";
 const ManajAllLoan = () => {
   const axiouSecore = useAxiousSecoure();
   const queryClient = useQueryClient();
+  const { ishome, setIshome } = useState();
 
-  const { isPending, data: allLoan } = useQuery({
+  const { isPending, data: allLoan = [] } = useQuery({
     queryKey: ["todos"],
     queryFn: async () => {
       const res = await axiouSecore.get("/all_loan");
@@ -31,7 +32,7 @@ const ManajAllLoan = () => {
 
   const { mutateAsync, isPending: panding } = useMutation({
     mutationFn: async ({ id, payload }) =>
-      await axiouSecore.patch(`/updateloan/${id}`, payload),
+      await axiouSecore.patch(`/ishomeupdate/${id}`, payload),
 
     onSuccess: (res) => {
       queryClient.invalidateQueries(["todos"]);
@@ -40,10 +41,12 @@ const ManajAllLoan = () => {
   });
 
   const ishomeHandalar = async (id, value) => {
-    const payload = { isHome: value };
-
-    await mutateAsync({ id, payload });
+    await mutateAsync({
+      id,
+      payload: { isHome: value },
+    });
   };
+
   const delatehandalar = (id) => {
     console.log(id);
     Swal.fire({
@@ -101,12 +104,12 @@ const ManajAllLoan = () => {
                 <td>{loan.loanTitle}</td>
                 <td>{loan.interestRate}</td>
                 <td>{loan.category}</td>
-                <td>Helal Khan</td>
+                <td>{loan.createdBy}</td>
                 <td>
                   <th>
                     <input
                       type="checkbox"
-                      checked={loan.isHome}
+                      checked={!!loan.isHome}
                       onChange={(e) =>
                         ishomeHandalar(loan._id, e.target.checked)
                       }

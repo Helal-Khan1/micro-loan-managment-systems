@@ -100,7 +100,6 @@ const DetailsPage = () => {
             )}
             {role !== "manager" || role !== "admin" || (
               <>
-                {" "}
                 <button
                   className={`btn mt-5   ${
                     role !== "borrowe"

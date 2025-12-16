@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -22,7 +23,7 @@ const AvlableLoan = () => {
     queryKey: ["avlaibleLoan"],
     queryFn: async () => {
       const res = await axios.get(
-        `${import.meta.env.VITE_HOST_URL}/avilableloan`
+        `${import.meta.env.VITE_HOST_URL}/avilableloan?isHome=true`
       );
       return res.data;
     },
@@ -86,9 +87,11 @@ const AvlableLoan = () => {
                 {step.maxLimit}
               </p>
 
-              <button className="flex items-center gap-1.5 text-white bg-[#483ad4] hover:bg-[#342a9b] text-sm font-medium py-2 px-3 rounded-lg transition-colors duration-300">
-                View Details <FaArrowRight className="h-3 w-3" />
-              </button>
+              <Link to={`/details/${step._id}`}>
+                <button className="flex items-center gap-1.5 text-white bg-[#483ad4] hover:bg-[#342a9b] text-sm font-medium py-2 px-3 rounded-lg transition-colors duration-300">
+                  View Details <FaArrowRight className="h-3 w-3" />
+                </button>
+              </Link>
             </div>
           </motion.div>
         ))}
