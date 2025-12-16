@@ -1,74 +1,52 @@
 [
   {
-    "loanImage": "https://i.ibb.co.com/214xwhcT/account-assets-audit-bank-bookkeeping-finance-concept.jpg",
-    "loanTitle": "",
-    "description": "Provided for urgent expenses or personal financial needs.",
+    "loanTitle": "Instant Personal Support",
+    "description": "Quick and easy personal loan for urgent expenses or your dreams.",
     "category": "Personal Loan",
-    "interestRate": "10% - 14%",
-    "maxLimit": 50000,
-    "emiPlans": [3, 6, 9, 12]
+    "interestRate": "12% per annum",
+    "maxLimit": "500000",
+    "emiPlans": "6 months, 12 months, 24 months",
+    "loanImage": "https://i.ibb.co.com/k2QX4b8X/Green-and-Yellow-Simple-Instant-Loan-Services-Instagram-Post.png",
+    "showIsHome": true
   },
   {
-    "loanImage": "https://i.ibb.co.com/TjyzX0g/Pink-And-White-Modern-We-Offer-Small-Business-Loan-Instagram-Post.png",
-    "loanTitle": "Small Business Startup Loan",
-    "description": "Offered to start or expand small businesses.",
+    "loanTitle": "Small Business Support",
+    "description": "Quick loans to grow your small business easily.",
     "category": "Business Loan",
-    "interestRate": "12% - 18%",
-    "maxLimit": 200000,
-    "emiPlans": [6, 12, 18, 24]
+    "interestRate": "10% per annum",
+    "maxLimit": "1500000",
+    "emiPlans": "12 months, 24 months, 36 months",
+    "loanImage": "https://i.ibb.co.com/N6vC8rnH/White-Navy-And-Black-Modern-Small-Business-Loan-Consultation-Poster.png",
+    "showIsHome": true
   },
   {
-    "loanImage": "https://i.ibb.co.com/hRkWKF4f/Agriculture-Instagram-Post.png",
-    "loanTitle": "Agriculture Loan",
-    "description": "Financial support for crop production, seeds, fertilizers, or farming equipment.",
-    "category": "Agriculture",
-    "interestRate": "8% - 12%",
-    "maxLimit": 150000,
-    "emiPlans": [6, 12, 18]
+    "loanTitle": "Education & Career Loan",
+    "description": "Loans for higher studies and professional courses in easy installments.",
+    "category": "Education Loan",
+    "interestRate": "8% per annum",
+    "maxLimit": "1000000",
+    "emiPlans": "12 months, 24 months, 48 months",
+    "loanImage": "https://i.ibb.co.com/ZpbPNhnM/Blue-and-Orange-Modern-Education-Loan-Help-Instagram-Post.png",
+    "showIsHome": true
   },
   {
-    "loanImage": "https://i.ibb.co.com/pGYsq80/Blue-and-White-Modern-Education-Loan-Help-Instagram-Post.png",
-    "loanTitle": "Education Loan",
-    "description": "Helps students cover education expenses, course fees, or exam fees.",
-    "category": "Education",
-    "interestRate": "6% - 10%",
-    "maxLimit": 80000,
-    "emiPlans": [6, 12, 18]
+    "loanTitle": "Health & Medical Support",
+    "description": "Quick loans for urgent medical treatments for you or your family.",
+    "category": "Health Loan",
+    "interestRate": "9% per annum",
+    "maxLimit": "750000",
+    "emiPlans": "6 months, 12 months, 18 months",
+    "loanImage": "https://i.ibb.co.com/XZTKR16k/Blue-and-White-Modern-Medical-Services-Facebook-Post.png",
+    "showIsHome": true
   },
   {
-    "loanImage": "https://i.ibb.co.com/JWbHyzKD/MEDICAL.png",
-    "loanTitle": "Medical Emergency Loan",
-    "description": "Supports urgent medical expenses, medicines, surgery, or hospital bills.",
-    "category": "Medical",
-    "interestRate": "9% - 14%",
-    "maxLimit": 100000,
-    "emiPlans": [3, 6, 9, 12]
-  },
-  {
-    "loanImage": "https://i.ibb.co.com/LzFPBWcY/Orange-and-White-Minimalist-Home-Loan-Company-Services-Instagram-Post.png",
-    "loanTitle": "Housing Repair Loan",
-    "description": "Offered for house repairs, painting, or minor construction work.",
-    "category": "Housing Repair",
-    "interestRate": "11% - 15%",
-    "maxLimit": 120000,
-    "emiPlans": [6, 12, 18]
-  },
-  {
-    "loanImage": "https://i.ibb.co.com/B2Td5sbb/Blue-and-White-Gradients-Loans-Linked-In-Post.png",
-    "loanTitle": "Women Entrepreneur Loan",
-    "description": "Supports women in small businesses, handicrafts, or startup ventures.",
-    "category": "Women Entrepreneurship",
-    "interestRate": "7% - 12%",
-    "maxLimit": 150000,
-    "emiPlans": [6, 12, 18, 24]
-  },
-  {
-    "loanImage": "https://i.ibb.co.com/gMzJGqSY/buy-your-vehicle-inline-instagram-post.png",
-    "loanTitle": "Two-Wheeler Vehicle Loan",
-    "description": "Provides financial support to purchase motorcycles or electric bikes.",
-    "category": "Vehicle Loan",
-    "interestRate": "12% - 16%",
-    "maxLimit": 250000,
-    "emiPlans": [12, 18, 24, 30]
+    "loanTitle": "Dream Home Loan",
+    "description": "Convenient loans for buying a new house or renovating your home.",
+    "category": "Home Loan",
+    "interestRate": "7% per annum",
+    "maxLimit": "5000000",
+    "emiPlans": "60 months, 120 months, 180 months",
+    "loanImage": "https://i.ibb.co.com/4gFnsh5s/Green-and-White-Modern-Home-Loan-Services-Instagram-Post.png",
+    "showIsHome": true
   }
 ]

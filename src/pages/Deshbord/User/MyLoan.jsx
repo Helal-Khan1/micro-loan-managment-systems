@@ -1,14 +1,17 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiousSecoure from "../../../hooks/useAxiousSecoure";
 import Loading from "../../Loding";
 import Swal from "sweetalert2";
 import { Description } from "@headlessui/react";
+import { useSearchParams } from "react-router";
+import axios from "axios";
 
 const MyLoan = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiousSecoure();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const {
     refetch,
@@ -22,7 +25,6 @@ const MyLoan = () => {
       return res.data;
     },
   });
-
   const { isPending, mutateAsync } = useMutation({
     mutationFn: async ({ id }) =>
       await axiosSecure.delete(`/application/${id}`),
@@ -33,7 +35,31 @@ const MyLoan = () => {
       console.log(err);
     },
   });
+  const sessionId = searchParams.get("session_id");
 
+  // MyLoan.jsx (ফ্রন্টএন্ড)
+  // ...
+
+  const { mutateAsync: mutatepostdata } = useMutation({
+    mutationFn: async (sessionId) =>
+      await axiosSecure.post("/deshbord_myloan", { sessionId }), // ✅ sessionId কে অবজেক্টের মধ্যে পাঠান
+    onSuccess: (data) => {
+      console.log("Status update successful:", data);
+      
+      refetch(); // ✅ নতুন ডেটা Fetch করুন
+      setSearchParams({}); // ✅ URL থেকে session_id সরিয়ে দিন
+    },
+  });
+
+  // ...
+
+  useEffect(() => {
+    if (sessionId) {
+      mutatepostdata(sessionId);
+    } // Dependency array তে refetch এবং setSearchParams যোগ করুন
+  }, [sessionId, mutatepostdata, refetch, setSearchParams]);
+
+  // ...
   const handalPrement = async (loan) => {
     console.log(loan);
     const prementFree = 10;
@@ -57,10 +83,6 @@ const MyLoan = () => {
     console.log(res.data.url);
   };
 
-  if (isPending) return <Loading></Loading>;
-  if (isLoading) return <Loading></Loading>;
-
-  console.log(myloan);
   const delatehandalar = async (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -84,6 +106,11 @@ const MyLoan = () => {
     });
     console.log(id);
   };
+
+  if (isPending) return <Loading></Loading>;
+  if (isLoading) return <Loading></Loading>;
+
+  console.log(myloan);
   return (
     <div>
       <div className="overflow-x-auto">

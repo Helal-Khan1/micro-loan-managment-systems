@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import useRole from "../hooks/useRole";
 import Loading from "../pages/Loding";
 
-const AdminRouts = ({ children }) => {
+const BorrowerRouts = ({ children }) => {
   const { loading } = useAuth();
   const { role, isloading } = useRole();
   if (loading || isloading) {
@@ -22,4 +22,4 @@ const AdminRouts = ({ children }) => {
   return children;
 };
 
-export default AdminRouts;
+export default BorrowerRouts;

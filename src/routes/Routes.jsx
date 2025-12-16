@@ -25,6 +25,8 @@ import ManagerProfile from "../pages/Deshbord/Manager/ManagerProfile";
 import ManagerRouts from "./ManagerRouts";
 import MyLoan from "../pages/Deshbord/User/MyLoan";
 import UsersProfile from "../pages/Deshbord/User/UsersProfile";
+import BorrowerRouts from "./BorrowerRouts";
+import SuccessPrement from "../pages/Deshbord/Prement/SuccessPrement";
 
 export const router = createBrowserRouter([
   {
@@ -172,12 +174,24 @@ export const router = createBrowserRouter([
       },
       {
         path: "User_Profile",
-        element: <UsersProfile></UsersProfile>,
+        element: (
+          <BorrowerRouts>
+            <UsersProfile></UsersProfile>
+          </BorrowerRouts>
+        ),
       },
 
       {
         path: "myloan",
-        element: <MyLoan></MyLoan>,
+        element: (
+          <BorrowerRouts>
+            <MyLoan></MyLoan>
+          </BorrowerRouts>
+        ),
+      },
+      {
+        path: "success",
+        element: <SuccessPrement />,
       },
     ],
   },

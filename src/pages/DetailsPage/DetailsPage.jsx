@@ -5,10 +5,12 @@ import { Link, useParams } from "react-router";
 import Loading from "../Loding";
 import { FaPercentage } from "react-icons/fa";
 import useAxiousSecoure from "../../hooks/useAxiousSecoure";
+import useRole from "../../hooks/useRole";
 
 const DetailsPage = () => {
   const { id } = useParams();
   const axioussecore = useAxiousSecoure();
+  const { role } = useRole();
 
   const { isLoading, data: loan } = useQuery({
     queryKey: ["singleLoanCard"],
@@ -76,12 +78,41 @@ const DetailsPage = () => {
               </p>
             </div>
           </div>
-
-          <Link to={`/applicationFrom/${loan._id}`}>
-            <button className="btn mt-5 w-full sm:w-[300px] md:w-[400px] lg:w-[500px] bg-primary text-white">
-              Apply Now
-            </button>
-          </Link>
+          <div>
+            {role === "borrowe" && (
+              <>
+                {" "}
+                <div>
+                  <Link to={`/applicationFrom/${loan._id}`}>
+                    <button
+                      disabled={role !== "borrowe"}
+                      className={`btn mt-5   ${
+                        role !== "borrowe"
+                          ? "opacity-50 cursor-not-allowed"
+                          : "hover:bg-primary/90"
+                      } w-full sm:w-[300px] md:w-[400px] lg:w-[500px] bg-primary text-white`}
+                    >
+                      Apply Now
+                    </button>
+                  </Link>
+                </div>
+              </>
+            )}
+            {role !== "manager" || role !== "admin" || (
+              <>
+                {" "}
+                <button
+                  className={`btn mt-5   ${
+                    role !== "borrowe"
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-primary/90"
+                  } w-full sm:w-[300px] md:w-[400px] lg:w-[500px] bg-primary text-white`}
+                >
+                  Apply Now
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

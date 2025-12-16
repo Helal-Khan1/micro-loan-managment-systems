@@ -29,21 +29,21 @@ const ManajAllLoan = () => {
     },
   });
 
-  // const { mutateAsync, isPending: panding } = useMutation({
-  //   mutationFn: async ({ id, payload }) =>
-  //     await axiouSecore.patch(`/updateloan/${id}`, payload),
+  const { mutateAsync, isPending: panding } = useMutation({
+    mutationFn: async ({ id, payload }) =>
+      await axiouSecore.patch(`/updateloan/${id}`, payload),
 
-  //   onSuccess: (res) => {
-  //     queryClient.invalidateQueries(["todos"]);
-  //     console.log(res);
-  //   },
-  // });
+    onSuccess: (res) => {
+      queryClient.invalidateQueries(["todos"]);
+      console.log(res);
+    },
+  });
 
-  // const ishomeHandalar = async (id, value) => {
-  //   const payload = { isHome: value };
+  const ishomeHandalar = async (id, value) => {
+    const payload = { isHome: value };
 
-  //   await mutateAsync({ id, payload });
-  // };
+    await mutateAsync({ id, payload });
+  };
   const delatehandalar = (id) => {
     console.log(id);
     Swal.fire({
@@ -107,9 +107,9 @@ const ManajAllLoan = () => {
                     <input
                       type="checkbox"
                       checked={loan.isHome}
-                      // onChange={(e) =>
-                      //   ishomeHandalar(loan._id, e.target.checked)
-                      // }
+                      onChange={(e) =>
+                        ishomeHandalar(loan._id, e.target.checked)
+                      }
                       className="checkbox"
                     />
                   </th>
