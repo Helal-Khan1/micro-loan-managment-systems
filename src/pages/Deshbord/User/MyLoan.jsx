@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { Description } from "@headlessui/react";
 import { useSearchParams } from "react-router";
 import axios from "axios";
+import PremintInfoMudali from "../../../components/Modul/PremintInfoMudali";
 
 const MyLoan = () => {
   const { user } = useAuth();
@@ -37,26 +38,21 @@ const MyLoan = () => {
   });
   const sessionId = searchParams.get("session_id");
 
-  // MyLoan.jsx (ফ্রন্টএন্ড)
-  // ...
-
   const { mutateAsync: mutatepostdata } = useMutation({
     mutationFn: async (sessionId) =>
-      await axiosSecure.post("/deshbord_myloan", { sessionId }), // ✅ sessionId কে অবজেক্টের মধ্যে পাঠান
+      await axiosSecure.post("/deshbord_myloan", { sessionId }), // ✅
     onSuccess: (data) => {
       console.log("Status update successful:", data);
-      
-      refetch(); // ✅ নতুন ডেটা Fetch করুন
-      setSearchParams({}); // ✅ URL থেকে session_id সরিয়ে দিন
+
+      refetch(); //
+      setSearchParams({}); // ✅
     },
   });
-
-  // ...
 
   useEffect(() => {
     if (sessionId) {
       mutatepostdata(sessionId);
-    } // Dependency array তে refetch এবং setSearchParams যোগ করুন
+    } //
   }, [sessionId, mutatepostdata, refetch, setSearchParams]);
 
   // ...
@@ -123,7 +119,7 @@ const MyLoan = () => {
               <th>Loan Title </th>
               <th>Amoun </th>
               <th>status</th>
-              <th>Application Fee status</th>
+
               <th>Aplication Free</th>
               <th>Action</th>
             </tr>
@@ -136,22 +132,18 @@ const MyLoan = () => {
                 <td>{loan.LoanTitle}</td>
                 <td>{loan.LoneAmount}</td>
                 <td>{loan.status}</td>
-                <td
-                  className={`${
-                    loan.ApplicationFeeStatus === "Paid"
-                      ? "text-green-400"
-                      : " text-red-400 "
-                  } `}
-                >
-                  {loan.ApplicationFeeStatus}
-                </td>
+
                 <td>
-                  <button
-                    onClick={() => handalPrement(loan)}
-                    className="btn bg-green-400"
-                  >
-                    Pay
-                  </button>
+                  {loan.ApplicationFeeStatus === "paid" ? (
+                    <PremintInfoMudali loan={loan}></PremintInfoMudali>
+                  ) : (
+                    <button
+                      onClick={() => handalPrement(loan)}
+                      className="btn bg-green-400"
+                    >
+                      Pay
+                    </button>
+                  )}
                 </td>
                 <td className=" space-x-3.5">
                   <button className="btn">View</button>

@@ -54,7 +54,7 @@ export default function MyModal({ user }) {
     await mutateAsync({ id: user._id, payload: updatainfo });
   };
 
-  if (isPending) return <Loading />;
+  // if (isPending) return <Loading />;
   if (isError)
     return (
       <div>

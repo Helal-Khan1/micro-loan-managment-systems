@@ -46,7 +46,7 @@ export default function UserSespanModu({ user }) {
     await mutateAsync({ id: user._id, payload });
   };
 
-  if (isPending) return <Loading />;
+  // if (isPending) return <Loading />;
   if (isError)
     return (
       <div>
@@ -62,7 +62,7 @@ export default function UserSespanModu({ user }) {
 
       <Dialog open={issuspend} onClose={close} as="div">
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto dark:text-black">
-          <div className="flex min-h-full items-center justify-center p-4">
+          <div className="flex min-h-full items-center justify-center dark:text-base-100 text-gray-800 p-4">
             <DialogPanel className="w-full max-w-md rounded-xl bg-gray-200 p-6">
               <DialogTitle className="text-center font-bold text-lg">
                 Why suspend feedback?

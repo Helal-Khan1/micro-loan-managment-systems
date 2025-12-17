@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../assets/logo.png";
 import { Link, NavLink } from "react-router";
 import { IoHome } from "react-icons/io5";
@@ -7,9 +7,10 @@ import { MdContactSupport } from "react-icons/md";
 import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
 import Loading from "../../../pages/Loding";
-
+import useTheme from "../../../utils";
 const Naber = () => {
   const { user, loading, logOutUser, setLoading } = useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   const logouthandalar = () => {
     logOutUser()
@@ -123,6 +124,10 @@ const Naber = () => {
         </div>
 
         <div className="navbar-end space-x-2.5">
+          <button onClick={toggleTheme} className="btn btn-circle">
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
+
           {loading ? (
             <button className="btn btn-disabled">
               <span className="loading loading-spinner loading-sm"></span>{" "}

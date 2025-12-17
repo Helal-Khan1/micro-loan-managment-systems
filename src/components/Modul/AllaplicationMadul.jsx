@@ -25,7 +25,7 @@ export default function AllaplicationMudal({ aplication }) {
         onClose={close}
       >
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto dark:text-black bg-black/40">
-          <div className="flex min-h-full items-center justify-center p-4">
+          <div className="flex min-h-full items-center justify-center dark:text-base-100 text-gray-800 p-4">
             <DialogPanel
               transition
               className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl duration-300"

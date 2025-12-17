@@ -66,7 +66,7 @@ const AddLoan = () => {
   if (isError) return <Error />;
 
   return (
-    <div className="bg-gray-50 min-h-screen p-4 sm:p-8">
+    <div className="bg-gray-50 dark:text-base-100 text-gray-800 min-h-screen p-4 sm:p-8">
       <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-6 sm:p-10">
         <h1 className="text-center font-extrabold text-4xl mb-8 text-indigo-700 border-b-2 pb-3">
           💰Add Loan

@@ -67,7 +67,7 @@ const LoanApplications = () => {
                     className={`px-2 py-1 rounded text-white ${
                       aplication.status === "approved"
                         ? "bg-green-600"
-                        : aplication.status === "Rejected"
+                        : aplication.status === "rejected"
                         ? "bg-red-600"
                         : "bg-yellow-500"
                     }`}

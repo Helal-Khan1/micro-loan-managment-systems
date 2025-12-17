@@ -35,9 +35,11 @@ const feedbacks = [
 
 const CustomerFeedback = () => {
   return (
-    <section className="py-16  dark:text-black bg-gray-50">
+    <section className="py-16  dark:text-black bg-white/50 ">
       <div className="container mx-auto px-4 text-center ">
-        <h2 className="text-3xl font-bold mb-12">What Our Customers Say</h2>
+        <h2 className="text-3xl font-bold dark:text-base-100 text-gray-800 mb-12">
+          What Our Customers Say
+        </h2>
 
         <Swiper
           modules={[Autoplay, Pagination]}

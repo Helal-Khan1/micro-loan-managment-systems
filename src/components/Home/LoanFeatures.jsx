@@ -30,11 +30,11 @@ const LoanFeatures = () => {
   ];
 
   return (
-    <section className="py-16 dark:text-black bg-white">
+    <section className="py-16 dark:text-black bg-white/50">
       <div className="container mx-auto px-4 text-center">
         {/* Title Animation */}
         <motion.h2
-          className="text-3xl font-bold mb-12"
+          className="text-3xl font-bold dark:text-base-100 text-gray-800 mb-12"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -48,7 +48,7 @@ const LoanFeatures = () => {
           {features.map((item, index) => (
             <motion.div
               key={index}
-              className="p-8 bg-gray-50 rounded-2xl shadow hover:shadow-xl hover:scale-105 transition cursor-default"
+              className="p-8 bg-gray-50 dark:text-base-100 text-gray-800 rounded-2xl shadow hover:shadow-xl hover:scale-105 transition cursor-default"
               custom={index}
               variants={cardVariants}
               initial="hidden"

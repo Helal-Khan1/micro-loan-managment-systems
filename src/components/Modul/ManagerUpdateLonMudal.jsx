@@ -83,7 +83,7 @@ export default function ManagerUpdateLoanModal({ loan }) {
       <Dialog open={isOpen} onClose={close} className="relative z-10">
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" />
         <form onSubmit={handleSubmit(loanupdatehandalar)}>
-          <div className="fixed inset-0 flex items-center justify-center p-4">
+          <div className="fixed inset-0 flex items-center justify-center dark:text-base-100 text-gray-800 p-4">
             <DialogPanel className="w-full max-w-3xl rounded-2xl bg-white p-8 shadow-xl relative dark:text-black ">
               <DialogTitle className="text-3xl font-semibold text-gray-800 text-center">
                 Update Loan Product
@@ -186,7 +186,7 @@ export default function ManagerUpdateLoanModal({ loan }) {
                 <textarea
                   placeholder="Secondary"
                   {...register("description")}
-                  className="textarea textarea-secondary w-full mt-1 p-2 border rounded-lg dark:bg-white"
+                  className="textarea textarea-secondary w-full mt-1 p-2 border rounded-lg bg-white/50"
                 ></textarea>
               </div>
 

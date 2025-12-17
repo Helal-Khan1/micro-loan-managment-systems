@@ -5,19 +5,6 @@ import axios from "axios";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router";
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
-
 const AvlableLoan = () => {
   const { isLoading, data: loan } = useQuery({
     queryKey: ["avlaibleLoan"],
@@ -65,15 +52,15 @@ const AvlableLoan = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.2, duration: 0.6 }}
           >
-            <div className="text-primary dark:bg-white dark:text-white mb-4 mx-auto border p-4 rounded-xl w-full">
+            <div className="text-primary bg-base-100  mb-4 mx-auto border p-4 rounded-xl w-full">
               <img
                 src={step.loanImage}
-                className="h-48 dark:bg-white rounded-lg object-cover w-full"
+                className="h-48   rounded-lg object-cover w-full"
                 alt={step.loanTitle}
               />
             </div>
 
-            <h3 className="text-xl dark:text-black font-semibold mb-3">
+            <h3 className="text-xl  dark:text-base-100 text-gray-800  font-semibold mb-3">
               {step.loanTitle}
             </h3>
 
@@ -82,8 +69,11 @@ const AvlableLoan = () => {
             </p>
 
             <div className="flex justify-between items-center mt-auto pt-3 border-t border-gray-100">
-              <p className="text-sm">
-                <span className="font-bold text-gray-800">Max-Loan:</span> 💰
+              <p className="text-sm  dark:text-base-100 text-gray-800">
+                <span className="font-bold dark:text-base-100 text-gray-800">
+                  Max-Loan:
+                </span>{" "}
+                💰
                 {step.maxLimit}
               </p>
 

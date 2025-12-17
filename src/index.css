@@ -1,6 +1,4 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-body {
-  border: red;
-}
+@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
