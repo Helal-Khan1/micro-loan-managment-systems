@@ -10,7 +10,7 @@ const BorrowerRouts = ({ children }) => {
     return <Loading></Loading>;
   }
 
-  if (role !== "borrowe") {
+  if (role !== "borrower") {
     return (
       <>
         <div className="flex items-center justify-center ">

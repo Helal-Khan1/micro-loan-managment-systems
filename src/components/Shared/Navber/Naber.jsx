@@ -3,11 +3,16 @@ import logo from "../../../assets/logo.png";
 import { Link, NavLink } from "react-router";
 import { IoHome } from "react-icons/io5";
 import { FcAbout } from "react-icons/fc";
-import { MdContactSupport } from "react-icons/md";
+import {
+  MdContactSupport,
+  MdDarkMode,
+  MdLightbulbCircle,
+} from "react-icons/md";
 import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
 import Loading from "../../../pages/Loding";
 import useTheme from "../../../utils";
+import { GiChainLightning } from "react-icons/gi";
 const Naber = () => {
   const { user, loading, logOutUser, setLoading } = useAuth();
   const { theme, toggleTheme } = useTheme();
@@ -125,7 +130,11 @@ const Naber = () => {
 
         <div className="navbar-end space-x-2.5">
           <button onClick={toggleTheme} className="btn btn-circle">
-            {theme === "light" ? "🌙" : "☀️"}
+            {theme === "winter" ? (
+              <MdDarkMode />
+            ) : (
+              <MdLightbulbCircle className="text-2xl" />
+            )}
           </button>
 
           {loading ? (

@@ -6,7 +6,7 @@ import useAxiousSecoure from "./useAxiousSecoure";
 const useRole = () => {
   const { user } = useAuth();
   const axiouSecore = useAxiousSecoure();
-  const { isLoading, data: role = "borrowe" } = useQuery({
+  const { isLoading, data: role = "borrower" } = useQuery({
     queryKey: ["user-role", user?.email],
     queryFn: async () => {
       const res = await axiouSecore.get(`/users/${user?.email}/role`);

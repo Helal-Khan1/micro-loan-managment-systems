@@ -208,7 +208,7 @@ const DeshbordLayouts = () => {
               </>
             )}
 
-            {role === "borrowe" && (
+            {role === "borrower" && (
               <>
                 {" "}
                 <li>

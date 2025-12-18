@@ -79,15 +79,15 @@ const DetailsPage = () => {
             </div>
           </div>
           <div>
-            {role === "borrowe" && (
+            {role === "borrower" && (
               <>
                 {" "}
                 <div>
                   <Link to={`/applicationFrom/${loan._id}`}>
                     <button
-                      disabled={role !== "borrowe"}
+                      disabled={role !== "borrower"}
                       className={`btn mt-5   ${
-                        role !== "borrowe"
+                        role !== "borrower"
                           ? "opacity-50 cursor-not-allowed"
                           : "hover:bg-primary/90"
                       } w-full sm:w-[300px] md:w-[400px] lg:w-[500px] bg-primary text-white`}
@@ -102,7 +102,7 @@ const DetailsPage = () => {
               <>
                 <button
                   className={`btn mt-5   ${
-                    role !== "borrowe"
+                    role !== "borrower"
                       ? "opacity-50 cursor-not-allowed"
                       : "hover:bg-primary/90"
                   } w-full sm:w-[300px] md:w-[400px] lg:w-[500px] bg-primary text-white`}
